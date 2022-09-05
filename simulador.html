@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3c44aa10f3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/simulador.css">
+    <title>Simulador de Telemonitoreo para Obras Sociales, Prepagas, Instituciones</title>  
+</head>
+<body>
+    <div class="form">
+        <fieldset>
+            <h1>SIMULADOR PARA OBRAS SOCIALES, PREPAGAS, INSTITUCIONES</h1>
+            <form>
+                <div>
+                    <label for="pobla">Cant. pacientes mayores 65 años 
+                        <input type="text" placeholder="Ingrese la cantidad de personas mayores a 65" id="pobla">
+                        <i class="fa fa-group"></i>
+                    </label>
+                    <h7>En caso de no conocer exactamente ese valor piense</h7>
+                    <h7>que en Argentina existe un 10% de personas en ese grupo</h7>
+                </div>
+                <div>
+                    <label for="cama">Costo diario internación $ 
+                        <input type="text" placeholder="Ingrese lo que cuesta un día de internación" id="cama">
+                        <i class="fas fa-coins"></i>
+                    </label>
+                </div>
+                <div>
+                    <label for="herra">Costo mensual acceso a la APP $
+                        <input type="text" placeholder="Costo mensual acceso a la herramienta" id="herra">
+                        <i class='fas fa-hand-holding-medical'></i>
+                    </label>
+                </div>
+                <div>
+                    <label for="kit">Costo del kit individual $
+                        <input type="text" placeholder="Costo del kit para realizar las mediciones" id="kit">
+                        <i class="fa fa-file-medical"></i>
+                    </label>
+                </div>
+                <div>
+                    <label for="visita">Costo de la Consulta Médica $
+                        <input type="text" placeholder="Costo de la Consulta Médica" id="visita">
+                        <i class="fa fa-file-medical"></i>
+                    </label>
+                </div>
+                <div>
+                    <label for="telemoni">Costo del telemonitoreo $
+                        <input type="text" placeholder="Costo de Telemonitoreo" id="telemoni">
+                        <i class="fa fa-file-medical"></i>
+                    </label><br>
+                    <h7>En caso de contratar a residentes o practicantes que no reciben </h7>
+                    <h7>remuneración, ingrese 0. Estime el costo por cada paciente de forma diaria</h7>
+                </div>
+            </form>
+        <button onclick="gen_table();">CALCULAR</button>
+        </fieldset>
+        <fieldset>
+            <h1>RESULTADOS ESTIMADOS</h1>
+            <h1>Ahorro anual por la utilización de la herramienta</h1>
+            <h2>
+                <label for="t20">Ahorro anual sin compra inicial % 
+                    <span id="t20" style="color:blue;"></span>
+                </label>
+            </h2>
+            <h2>
+                <label for="t14">Incluye total kits inicial pacientes $ 
+                    <span id="t14" style="color:blue;"></span>
+                </label>
+            </h2>
+            <h2>
+                <label for="t15">Incluye kits nuevos pacientes $ 
+                    <span id="t15" style="color:blue;"></span>
+                </label>
+            </h2>
+            <h2>
+                <label for="t16">A partir del 4° año con 15 % de reintegro de kits $ 
+                    <span id="t16" style="color:blue;"></span>
+                </label>
+            </h2>
+            <form >
+                <div>
+                    <tr  class="tab">
+                        <label for="t2">Cantidad de Personas con IC 
+                            <span id="t2" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div>
+                    <tr  class="tab">
+                        <label for="t4">Cantidad de nuevos pacientes por año 
+                            <span id="t4" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div>
+                    <tr  class="tab">
+                        <label for="t5">Cantidad de pacientes reinternados por año 
+                            <span id="t5" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div>
+                    <tr  class="tab">
+                        <label for="t6">Cantidad de días promedio de reinternación por paciente 
+                            <span id="t6" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div>
+                    <tr  class="tab">
+                        <label for="t7">Cantidad de camas/días de reinternaciones por IC 
+                            <span id="t7" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div>
+                    <tr  class="tab">
+                        <label for="t18">Cantidad de camas/días ahorrados por usar la herramienta 
+                            <span id="t18" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div>
+                    <tr  class="tab">
+                        <label for="t8">Gasto total por reinternación por IC $ 
+                            <span id="t8" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div>
+                    <tr  class="tab">
+                        <label for="t9">Gasto total por reinternación por IC con app $ 
+                            <span id="t9" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div>
+                    <tr  class="tab">
+                        <label for="t10">Gasto utilización herramienta $ 
+                            <span id="t10" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div>
+                    <tr  class="tab">
+                        <label for="t11">Gasto Anual por compra kit $ 
+                            <span id="t11" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div>
+                    <tr  class="tab">
+                        <label for="t12">Gasto Inicial por compra kit $ 
+                            <span id="t12" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div class="p-3 mb-2 bg-primary text-white">
+                    <tr  class="tab">
+                        <label for="t13">Gasto compra kit después del 4 año $ 
+                            <span id="t13" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>  
+                <div class="p-3 mb-2 bg-primary text-white">
+                    <tr  class="tab">
+                        <label for="t17">Ahorro por Consultas Médicas $ 
+                            <span id="t17" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>
+                <div class="p-3 mb-2 bg-primary text-white">
+                    <tr  class="tab">
+                        <label for="t19">Costo de telemonitoreo $ 
+                            <span id="t19" style="color:blue;"></span>
+                        </label>
+                    </tr>
+                </div>  
+            </form>
+        </fieldset>
+    </div>
+    <script src="scripts/simulador.js"></script>
+</body>
+</html>
